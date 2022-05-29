@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
     userId:{
         type: mongoose.Schema.ObjectId,
-        ref: 'userModel',
+        ref: 'user',
         required:[true,"姓名必填"]
     },
     createDate:{

@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
 const Post = require("../models/postModel");
-const response = require("../controllers/response");
+const response = require("../service/response");
 
 const get = async (req,res)=>{
-    const getPost = await Post.find();
+    const timeSort = req.query.timeSort == "asc" ? "createDate":"-createDate"
+    const q = req.query.q !== undefined ? {"content": new RegExp(req.query.q)} : {};
+    const getPost = await Post.find(q).populate({
+        path: "userId",
+        select: "name photo",
+    }).sort(timeSort);
     response.success(req,res,getPost)
 }
 
