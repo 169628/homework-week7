@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"userId\":\"6288e17c08eca4e554f56c9c\",\n\"content\":\"內容測試3\"\n}",
+					"raw": "{\n\"userId\":\"6288e17c08eca4e554f56c9c\",\n\"content\":\"內容測試4\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://lit-headland-92316.herokuapp.com/post/post",
+					"raw": "https://lit-headland-92316.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
 						"lit-headland-92316",
@@ -28,8 +28,7 @@
 						"com"
 					],
 					"path": [
-						"post",
-						"post"
+						"posts"
 					]
 				}
 			},
@@ -41,7 +40,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://lit-headland-92316.herokuapp.com/post",
+					"raw": "https://lit-headland-92316.herokuapp.com/posts?q=內",
 					"protocol": "https",
 					"host": [
 						"lit-headland-92316",
@@ -49,7 +48,13 @@
 						"com"
 					],
 					"path": [
-						"post"
+						"posts"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "內"
+						}
 					]
 				}
 			},
