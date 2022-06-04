@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 const postController = require("../controllers/postController");
+const err = require("../service/errorHandle/errorHanle");
 
 //get all post
-router.get('/',postController.get);
+router.get('/',err.handleErrorAsync(postController.get));
 //get all post
-router.post('/',postController.post);
+router.post('/',err.handleErrorAsync(postController.post));
 
 module.exports = router;

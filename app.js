@@ -6,8 +6,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postRouter = require('./routes/post');
+var err = require('./service/errorHandle/errorHanle');
 
 var app = express();
+
+//重大錯誤
+process.on('uncaughtException',err.uncaughtException);
 
 //連接資料庫
 require("./connection");
@@ -23,19 +27,12 @@ app.use('/users', usersRouter);
 app.use('/posts', postRouter);
 
 //404錯誤
-app.use((req, res) => {
-    res.status(404).send({
-        status: "error",
-        message: "無此路由"
-    })
-})
+app.use(err.error404);
 
-//express錯誤處理
-app.use((err, req, res, next) => {
-    res.status(500).send({
-        status: "error",
-        message: "系統錯誤，請洽管理員"
-    })
-})
+//express錯誤處理,回傳至前台
+app.use(err.resErrorProd);
+
+// 未捕捉到的 catch 
+process.on('unhandledRejection',err.unhandledRejection);
 
 module.exports = app;
