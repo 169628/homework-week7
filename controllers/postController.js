@@ -16,7 +16,7 @@ const get = async (req,res)=>{
 const post = async (req, res, next) => {
     const { body } = req;
         if(!body.userId || !body.content){
-            err.appError(400,"請填寫正確內容",next);
+            return next(err.appError(400,"請填寫正確內容",next));
         }else{
             const addPost = await Post.create({
                 userId: body.userId,

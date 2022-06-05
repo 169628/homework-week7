@@ -22,43 +22,56 @@ const userSchema = new mongoose.Schema({
     mail:{
         type: String,
         required:[true,"e-mail必填"],
+        select: false
     },
     password:{
         type: String,
         required:[true,"密碼必填"],
-        minlength: 8,
+        minlength: 6,
         select:false
     },
-    like:[{
-        postId:{
-            type:String,
-            required:[true,"postId必填"]
-        },
-        date:{
-            type:Date,
-            default: Date.now
-        }
-    }],
-    follow:[{
-        userId:{
-            type:String,
-            required:[true,"userId必填"]
-        },
-        date:{
-            type: Date,
-            default: Date.now
-        }
-    }],
-    fans:[{
-        userId:{
-            type:String,
-            required:[true,"userId必填"]
-        },
-        Date:{
-            type: Date,
-            default: Date.now
-        }
-    }]
+    like:{
+        type:[{
+            postId:{
+                type: mongoose.Schema.ObjectId,
+                ref: 'Post',
+                required: [true, '使用者資訊未填寫']
+            },
+            date:{
+                type: Date,
+                default: Date.now
+            }
+        }],
+        default: []
+    },
+    follow:{
+        type:[{
+            userId:{
+                type: mongoose.Schema.ObjectId,
+                ref: 'User',
+                required: [true, '使用者資訊未填寫']
+            },
+            date:{
+                type: Date,
+                default: Date.now
+            }
+        }],
+        default: []
+    },
+    fans:{
+        type:[{
+            userId:{
+                type: mongoose.Schema.ObjectId,
+                ref: 'User',
+                required: [true, '使用者資訊未填寫']
+            },
+            date:{
+                type: Date,
+                default: Date.now
+            }
+        }],
+        default: []
+    }
 },{
     versionKey: false
 })

@@ -1,4 +1,4 @@
-const success = (req,res,message)=>{
+const success = (res,message)=>{
     res.send({
         status:'success',
         message

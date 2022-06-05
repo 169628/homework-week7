@@ -14,7 +14,7 @@ var app = express();
 process.on('uncaughtException',err.uncaughtException);
 
 //連接資料庫
-require("./connection");
+require('./connection');
 
 app.use(logger('dev'));
 app.use(express.json());
