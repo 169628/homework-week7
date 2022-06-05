@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "f2e06b1f-96fd-4b05-b289-a54d2ea7c654",
+		"name": "POSTMAN-week6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users/sign_up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"1111@sina.com\",\n    \"password\":\"123456\",\n    \"confirmPassword\":\"123456\",\n    \"name\":\"使用者4號\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/users/sign_up",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/sign_in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"1111@sina.com\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/users/sign_in",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/updatePassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWNlZDJiMTUzMjNiZWQxOTM2NDVmZCIsImlhdCI6MTY1NDQ1MTYyNSwiZXhwIjoxNjU1NjYxMjI1fQ.v2bHINWF2DBOSihq46JULMy84xObrVKhl3fy5SSrV-g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\":\"654321\",\n    \"confirmPassword\":\"654321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/users/updatePassword",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"updatePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWNlZDJiMTUzMjNiZWQxOTM2NDVmZCIsImlhdCI6MTY1NDQ1MTYyNSwiZXhwIjoxNjU1NjYxMjI1fQ.v2bHINWF2DBOSihq46JULMy84xObrVKhl3fy5SSrV-g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/users/profile",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWNlZDJiMTUzMjNiZWQxOTM2NDVmZCIsImlhdCI6MTY1NDQ1MTYyNSwiZXhwIjoxNjU1NjYxMjI1fQ.v2bHINWF2DBOSihq46JULMy84xObrVKhl3fy5SSrV-g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sex\":\"female\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/users/profile",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
