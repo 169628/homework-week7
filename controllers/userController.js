@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
 const User = require('../models/userModel');
 const err =require('../service/errorHandle/errorHanle');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
 const sendJWT = require('../middleware/sendJWT');
-const isMember = require('../middleware/isMember');
+const response = require('../service/response');
+
 
 //註冊
 const signUp = async (req, res, next) => {
@@ -73,8 +73,33 @@ const updatePassword = async (req, res, next) => {
     sendJWT(user,res);
 }
 
+//取得個人資料
+const profile = async (req, res, next) => {
+    response(res,req.user)
+}
+
+//更新個人資料
+const updateProfile = async (req, res, next) => {
+    let { photo, name, sex } = req.body;
+    if(!photo && !name && !sex){
+        return next(err.appError(400,"您沒有更新任何資料",next));
+    }else{
+        await User.findByIdAndUpdate(req.user._id,{
+            photo,
+            name,
+            sex
+        })
+        const newProfile = await User.findById(req.user._id);
+        response(res,newProfile);
+    }
+}
+
+
+
 module.exports = {
     signUp,
     signIn,
-    updatePassword
+    updatePassword,
+    profile,
+    updateProfile
 };
