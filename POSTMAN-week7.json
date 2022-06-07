@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "f2e06b1f-96fd-4b05-b289-a54d2ea7c654",
-		"name": "POSTMAN-week6",
+		"name": "POSTMAN-week7",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -159,6 +159,42 @@
 					"path": [
 						"users",
 						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWNlZDJiMTUzMjNiZWQxOTM2NDVmZCIsImlhdCI6MTY1NDQ1MTYyNSwiZXhwIjoxNjU1NjYxMjI1fQ.v2bHINWF2DBOSihq46JULMy84xObrVKhl3fy5SSrV-g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/Rainbow_1/Downloads/桌布/03.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://powerful-garden-06600.herokuapp.com/upload",
+					"protocol": "https",
+					"host": [
+						"powerful-garden-06600",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"upload"
 					]
 				}
 			},
